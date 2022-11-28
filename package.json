@@ -1,0 +1,23 @@
+{
+  "name": "read-excel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwameasiago/read-excel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwameasiago/read-excel/issues"
+  },
+  "homepage": "https://github.com/kwameasiago/read-excel#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "xlsx": "^0.18.5"
+  }
+}
