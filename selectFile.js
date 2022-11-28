@@ -7,14 +7,39 @@ const {userInput} = require('./utils')
 
 
 
-module.exports.selectFile = (selectStatement=null) => {
+module.exports.readExcelFile = (fileOptions ={}, workbookOptions={}) => {
 
-    var files = fs.readdirSync('./input');
+    try {
+        var files = fs.readdirSync('./input');
     files.forEach((file, index) => {
         console.log(`${index + 1}: fileName - ${file}`)
     })
     console.log('\n')
     let fileSelected = userInput('Select file from list above eg 1, 2', 3 , files.length);
     console.log(`\n you have selected ${files[fileSelected -1]}`)
+
+    let pathToFile = `./input/${files[fileSelected -1]}`;
     
+    
+    const workbook = XLSX.readFile(pathToFile, fileOptions);
+
+    let wk_sheets = workbook.SheetNames;
+
+    wk_sheets.forEach((file, index) => {
+        console.log(`${index + 1}: worksheets - ${file}`)
+    })
+
+    let workSheetSelected = userInput('Select worksheet', 3 , wk_sheets.length);
+    
+    console.log(`\n you have selected ${wk_sheets[workSheetSelected -1]}`);
+
+    let wk_data = XLSX.utils.sheet_to_json(workbook.Sheets[wk_sheets[workSheetSelected -1]], workbookOptions);
+
+    return wk_data
+    
+    } catch (error) {
+        console.log(error)
+     return ['an error occured']  
+    }
+
 }
