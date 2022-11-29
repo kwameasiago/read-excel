@@ -1,6 +1,8 @@
 const {compareLeapIds} = require('./compareLeapIds');
 const {init} = require('./init');
-const {cleanAll, cleanInput, cleanOutput} = require('./clean')
+const {cleanAll, cleanInput, cleanOutput} = require('./clean');
+const {transcript} = require('./transcript');
+const {program} = require('./program')
 
 
 module.exports = {
@@ -8,5 +10,7 @@ module.exports = {
     init,
     cleanAll,
     cleanInput,
-    cleanOutput
+    cleanOutput,
+    transcript,
+    program
 }
